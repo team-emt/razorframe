@@ -15,14 +15,20 @@ let textForm = document.getElementById('text-input-form');
 let textInput = document.getElementById('text-input-field')
 let textDisplay = document.getElementById('text-display');
 
-textForm.addEventListener('submit', (event) => {
-  event.preventDefault();
-  socket.emit('event', textInput.value);
-  textInput.value = '';
+textForm.addEventListener('submit', (e) => {
+    e.preventDefault();
+
+    const event = 'sent';
+    const text = textInput.value;
+    const channel = 'channel-name';
+
+    socket.emit('event', { event, text, channel });
+    textInput.value = '';
 });
 
-socket.on('text receieved', (msg) => {
-  textDisplay.innerHTML = msg;
+
+socket.on('sent', (msg) => {
+    textDisplay.innerHTML = msg;
 });
 
 
