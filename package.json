@@ -1,0 +1,29 @@
+{
+  "name": "razorframe",
+  "version": "1.0.0",
+  "description": "A real-time database streaming library.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/team-emt/razorframe.git"
+  },
+  "keywords": [
+    "Node",
+    "Express",
+    "Sockets.io",
+    "SQL",
+    "databases"
+  ],
+  "author": "Travis Huff, Eddie Park, Michael Sotkin",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/team-emt/razorframe/issues"
+  },
+  "homepage": "https://github.com/team-emt/razorframe#readme",
+  "dependencies": {
+    "socket.io": "^1.6.0"
+  }
+}
