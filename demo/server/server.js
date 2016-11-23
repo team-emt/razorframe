@@ -7,10 +7,11 @@ const path = require('path');
 const app = express();
 const bodyParser = require('body-parser');
 const http = require('http').Server(app);
+
 const rb = require('../../lib/Razorbrain.js');
 rb(http);
 
-const { addToDb, showAll } = require('./eventCtrl');
+// const { addToDb, showAll } = require('./eventCtrl');
 
 app.use(express.static(path.join(__dirname, '../'))); // need this to be able to serve up app.js + styles.css
 app.use(bodyParser.urlencoded({ extended: true }));
