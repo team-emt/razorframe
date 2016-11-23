@@ -17,7 +17,7 @@ let textDisplay = document.getElementById('text-display');
 
 textForm.addEventListener('submit', (event) => {
   event.preventDefault();
-  socket.emit('text entry', textInput.value);
+  socket.emit('event', textInput.value);
   textInput.value = '';
 });
 
