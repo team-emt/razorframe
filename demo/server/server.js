@@ -36,7 +36,6 @@ io.on('connection', (socket) => {
       // io.emit('text receieved', msg);
       // socket.broadcast.emit('text receieved', msg);
       msg.socket = socket;
-      msg.io = io;
 
       rz.enqueue(msg);
       // rz.broadcastOthers(socket, msg);
