@@ -9,21 +9,27 @@
 
 <body>
   <h1>Client Side</h1>
-  <div id="text-display">Chat Display</div>
 
-  <!--<form action="/write" method="post" id="text-input-form">-->
   <form id="text-input-form">
     <input type="text" name="text" id="text-input-field" autocomplete="off">
     <input type="submit" value="Submit">
   </form>
+
+  <div id="text-display"><h3>Chat Display</h3>
+    <ul id="chat-msg">
+
+    </ul>
+  </div>
 
   <form action="">
     <input type="file" id="file-select">
     <button type="submit">Send</button>
   </form>
   
-  <div>
-    <ul id="image-feed"></ul>
+  <div><h3>Image Display</h3>
+    <ul id="image-feed">
+
+    </ul>
   </div>
 
   <script src="/socket.io/socket.io.js"></script>

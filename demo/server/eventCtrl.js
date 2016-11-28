@@ -16,19 +16,19 @@ module.exports = {
       });
   },
 
-  // showAll: () => {
-  //   let result = [];
-  //   let query = db.conn.query(`SELECT string FROM events`);
-  //   query
-  //     .on('row', (row) => {
-  //       // row = { string : ~text string~ }
-  //       result.push(row.string);
-  //     })
-  //     .on('end', () => {
-  //       console.log(result);
-  //       console.log('completed query push!');  
-  //       return result;
-  //     });
-  // }
+  showAll: (socket) => {
+    let result = [];
+    let query = db.conn.query(`SELECT string FROM events`);
+    query
+      .on('row', (row) => {
+        // row = { string : ~text string~ }
+        result.push(row.string);
+      })
+      .on('end', () => {
+        // console.log(result);
+        console.log('completed query push!');  
+        socket.emit('dbOnLoad', result)
+      });
+  }
 
 }
