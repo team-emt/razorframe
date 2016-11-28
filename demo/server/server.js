@@ -1,24 +1,34 @@
-// const io = require('socket.io')(http);
-// const Razorframe = require('../../lib/Razorframe.js');
-// const rz = Razorframe(http);
-
 const express = require('express');
 const path = require('path');
 const app = express();
 const bodyParser = require('body-parser');
 const http = require('http').Server(app);
 
-const { addToDb, showAll } = require('./eventCtrl'); // db methods
+const { addToDb, showAll } = require('./eventCtrl'); // user-defined db methods
+
+
+
 
 const rb = require('../../lib/Razorbrain.js');
 
-// let params =  { http: http, writeCallback: addToDb, pullCallback: showAll }
-// start thinking about parameter structure for anticipated callback needs
+/**
+ * NEURON parameters - passes into rb the http object + any user-defined callbacks
+ * @param - {Object} http => instantiate an http server
+ * @param - {Function} write => a DB write callback (user-defined)
+ * @param - {Function} show => a DB pull callback (user-defined)
+ */
 
-rb(http, addToDb);
+const NEURON = {
+  http,
+  write: addToDb,
+  show: null,
+};
+
+rb(NEURON); // could also pass http as first arg, NEURON as second arg with ONLY callbacks
 
 
-// need this to be able to serve up app.js + styles.css
+
+
 app.use(express.static(path.join(__dirname, '../')));
 app.use(bodyParser.urlencoded({ extended: true }));
 

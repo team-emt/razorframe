@@ -1,28 +1,17 @@
-let socket = io();
+const socket = io();
 
-// el.addEventListener(eventName, eventHandler);
-
-// $('form').submit(function () {
-//   socket.emit('chat message', $('#m').val());
-//   $('#m').val('');
-//   return false;
-// });
-// socket.on('chat message', function (msg) {
-//   $('#messages').append($('<li>').text(msg));
-// });
-
-let textForm = document.getElementById('text-input-form');
-let textInput = document.getElementById('text-input-field')
-let textDisplay = document.getElementById('text-display');
+const textForm = document.getElementById('text-input-form');
+const textInput = document.getElementById('text-input-field')
+const textDisplay = document.getElementById('text-display');
 
 textForm.addEventListener('submit', (e) => {
     e.preventDefault();
 
-    const event = 'sent';
-    const text = textInput.value;
+    const contents = textInput.value;
+    const eventOut = 'sent';
     const channel = 'channel-name';
 
-    socket.emit('event', { event, text, channel });
+    socket.emit('event', { contents, eventOut, channel });
     textInput.value = '';
 });
 
