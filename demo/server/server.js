@@ -19,13 +19,12 @@ const rb = require('../../lib/Razorbrain.js');
  */
 
 const NEURON = {
-  http: http,
+  http,
   write: addToDb,
-  show: null
+  show: null,
 };
 
 rb(NEURON); // could also pass http as first arg, NEURON as second arg with ONLY callbacks
-
 
 
 
