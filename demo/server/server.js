@@ -17,16 +17,12 @@ const rb = require('../../lib/Razorbrain.js');
  * @param - {Function} write => a DB write callback (user-defined)
  * @param - {Function} show => a DB pull callback (user-defined)
  */
-
 const NEURON = {
-  http,
   write: addToDb,
-  show: null,
+  show: showAll,
 };
 
-rb(NEURON); // could also pass http as first arg, NEURON as second arg with ONLY callbacks
-
-
+rb(http, NEURON);
 
 
 app.use(express.static(path.join(__dirname, '../')));
