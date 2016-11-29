@@ -2,7 +2,7 @@
   "name": "razorframe",
   "version": "1.0.0",
   "description": "A real-time database streaming library.",
-  "main": "index.js",
+  "main": "./lib/Razorbrain.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
