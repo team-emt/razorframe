@@ -12,7 +12,7 @@ const { addToDb, showAll } = require('./eventCtrl'); // user-defined db methods
 const rb = require('../../lib/Razorbrain.js');
 
 /**
- * NEURON parameters - passes into rb the http object + any user-defined callbacks
+ * NEURON parameters - passes into rb any user-defined callbacks
  * @param - {Object} http => instantiate an http server
  * @param - {Function} write => a DB write callback (user-defined)
  * @param - {Function} show => a DB pull callback (user-defined)
@@ -22,6 +22,7 @@ const NEURON = {
   show: showAll,
 };
 
+// Must pass http argument to connect to server
 rb(http, NEURON);
 
 
