@@ -1,7 +1,7 @@
 {
   "name": "razorframe",
   "version": "1.0.2",
-  "description": "A real-time database streaming library.",
+  "description": "Empowering real-time databases in Node.js",
   "main": "./lib/Razorbrain.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
