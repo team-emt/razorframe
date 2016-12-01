@@ -83,11 +83,11 @@ textForm.addEventListener('submit', (e) => {
 [Michael Sotkin](Michael.sotkin@gmail.com)
 
 ###Support  
-Tested in Chrome 55 & Node 6.  
+Tested in Chrome 55 & Node 6/7.  
 GitHub Issues: <https://github.com/team-emt/razorframe/issues>
 
 ###Contributions
-❤️Contributions welcome!  
+❤️ Contributions welcome!  
 Please see out GitHub repo at: <https://github.com/team-emt/razorframe>
 
 ###License  
