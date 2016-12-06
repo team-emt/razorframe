@@ -1,5 +1,7 @@
-# razorframe<sup>(beta)</sup>  
-####*Empowering real-time databases in Node.js*
+# razorframe<sup>(beta)</sup>  [![npm version](https://badge.fury.io/js/razorframe.svg)](https://badge.fury.io/js/razorframe)
+
+####*Empowering real-time databases in Node.js*  
+
 ____________________________________________________________________  
 
 ###Description  
