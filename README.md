@@ -25,22 +25,22 @@ $ npm i --save razorframe
 const rz = require('razorframe');
 
 /**
- * NEURON parameters - passes into rb any user-defined callbacks
+ * config parameters - passes into rb any user-defined callbacks
  * @param - {Object} http => instantiate an http server
  * @param - {Function} write => a DB write callback (user-defined)
  * @param - {Function} show => a DB pull callback (user-defined)
  */
-const NEURON = {
+const config = {
   write: addToDb,
   show: showAll,
 };
 
 /**
  * Instantiate razorframe passing in Node's http object
- * (to connect with your server) as well as the Neuron object
+ * (to connect with your server) as well as the config object
  * which contains all the user-defined callbacks
  */
-rz(http, NEURON);
+rz(http, config);
 ```
 
 
