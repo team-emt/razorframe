@@ -2,7 +2,7 @@
   "name": "razorframe",
   "version": "1.0.2",
   "description": "Empowering real-time databases in Node.js",
-  "main": "./lib/Razorbrain.js",
+  "main": "./lib/Razorframe.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -24,6 +24,11 @@
   },
   "homepage": "https://github.com/team-emt/razorframe#readme",
   "dependencies": {
-    "socket.io": "^1.6.0"
+    "express": "^4.14.0",
+    "parse-redis-url": "0.0.2",
+    "redis": "^2.6.3",
+    "socket.io": "^1.6.0",
+    "socket.io-redis": "^2.0.1",
+    "sticky-session": "^1.1.2"
   }
 }
