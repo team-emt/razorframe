@@ -1,6 +1,6 @@
 {
   "name": "razorframe",
-  "version": "1.0.7",
+  "version": "1.0.8",
   "description": "Empowering real-time databases in Node.js",
   "main": "./lib/Razorframe.js",
   "scripts": {
