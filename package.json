@@ -24,11 +24,12 @@
   },
   "homepage": "https://github.com/team-emt/razorframe#readme",
   "dependencies": {
+    "debug": "^2.3.3",
     "express": "^4.14.0",
+    "ip": "^1.1.4",
     "parse-redis-url": "0.0.2",
     "redis": "^2.6.3",
     "socket.io": "^1.6.0",
-    "socket.io-redis": "^2.0.1",
-    "sticky-session": "^1.1.2"
+    "socket.io-redis": "^2.0.1"
   }
 }
