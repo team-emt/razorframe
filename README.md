@@ -26,45 +26,33 @@ $ npm i --save razorframe
 1) Require razorframe.  
 2) Specify rzConfig object to set up server processes by declaring:
 
-* rzConfig.port: port where your server is listening.  
-* rzConfig.cluster: true or false depending on whether you want to enable Node clusters.  
-* (Even though our config automatically accounts for 1 process if not specified, you'll still get better performance if you turn off Node clusters if you know you won't be using more than one CPU.)  
+* **rzConfig.port:** port where your server is listening.  
+* **rzConfig.cluster:** true or false depending on whether you want to enable Node clusters.  
+(Even though our config automatically accounts for 1 process if not specified, you'll still get better performance if you turn off Node clusters if you know you won't be using more than one CPU.)  
 
-3) Specify dbConfig object to define your back-end callbacks.  
-4) Initialize razorframe while passing in the configurations.
+3) Specify dbConfig object to define your back-end callbacks. 
+
+* **dbConfig.write:** 'create' function for database. 
+* **dbConfig.show:** 'read' function for database.  
+* **dbConfig.update:** 'update' function for database.  
+* **dbConfig.delete:** 'delete' function for databse.   
+ 
+4) Initialize razorframe while passing in http (for your server) and the configurations.
 
 ```
 const rz = require('razorframe');
 
-/**
- * rzConfig properties - passes into rb any user-defined callbacks
- * @property {number}  port    - add server listener PORT
- * @property {boolean} cluster - define 'true' to enable clustering
-*/
 const rzConfig = {
   port: process.env.PORT || 3000,
   cluster: true
 };
 
-/**
- * dbConfig properties - passes into rz any user-defined database callbacks
- * @property {function} write  - a DB write callback (user-defined)
- * @property {function} show   - a DB read callback (user-defined)
- * @property {function} update - a DB update callback (user-defined)
- * @property {function} delete - a DB delete callback (user-defined)
- */
 const dbConfig = {
   write: addToDb,
   show: showAll,
   update: null,
   delete: null,
 };
-
-/**
- * Instantiate razorframe passing in Node's http object
- * (to connect with your server) as well as the 2 config objects
- * which contain more server info and user-defined back-end callbacks
- */
  
 rz.init(http, rzConfig, dbConfig);
 ```
@@ -81,18 +69,27 @@ Import 2 libraries: socket.io and razorframe into your HTML.
 
 **client.js:**  
 Contains 2 methods:  
-1) .publish  - publishes a data payload to a particular event and specifies a back-end callback  
+1) **rz.publish**  - publishes a data payload to a particular event and specifies a back-end callback  
 Specify arguments:
 
-* contents: message data
-* function name (as a string): a back-end operation you want to perform as defined in dbConfig.
-* event name: name the event you can then subscribe to.  
+* **contents:** message data
+* **function name (as a string):** a back-end operation you want to perform as defined in dbConfig.
+* **event name:** name the event you can then subscribe to. 
+ 
+```
+textForm.addEventListener('submit', (e) => {
+  e.preventDefault();
+  const contents = textInput.value;
+  rz.publish(contents, 'write', 'chatMsg')
+  textInput.value = '';
+});
+```
 
-2) .subscribe - listens for an event coming from the server  
+2) **rz.subscribe** - listens for an event coming from the server  
 Specify arguments:
 
-* event name: the event you want to listen for.
-* callback function: any function you want to call on the payload from the event.
+* **event name:** the event you want to listen for.
+* **callback function:** any function you want to call on the payload from the event.
 
 ```
 rz.subscribe('dbOnLoad', (data) => {
@@ -103,14 +100,8 @@ rz.subscribe('dbOnLoad', (data) => {
     chatMsg.appendChild(node);
   });
 });
-
-textForm.addEventListener('submit', (e) => {
-  e.preventDefault();
-  const contents = textInput.value;
-  rz.publish(contents, 'write', 'chatMsg')
-  textInput.value = '';
-});
 ```
+
 ###Platform
 [Node.js](https://nodejs.org/)  
 
