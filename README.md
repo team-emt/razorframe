@@ -1,4 +1,6 @@
-#razorframe  [![npm version](https://badge.fury.io/js/razorframe.svg)](https://badge.fury.io/js/razorframe)
+#razorframe  
+**Version**  
+[![npm version](https://badge.fury.io/js/razorframe.svg)](https://badge.fury.io/js/razorframe)
 ####*Empowering scalable, real-time web apps in Node.js*  
 
 
@@ -20,7 +22,7 @@ $ npm i --save razorframe
 ```
 
 ##Example
-###server.js:  
+###Server-side module:  
 1) Require razorframe.  
 2) Specify rzConfig object to set up server processes by declaring:
 
@@ -56,7 +58,8 @@ rz.init(http, rzConfig, dbConfig);
 ```
 
 
-###client.html:  
+###Client-side module: 
+**HTML**   
 Import 2 libraries: socket.io and razorframe into your HTML.  
 Grab the client-side import file from our website [razorfra.me](http://www.razorfra.me).
 
@@ -65,8 +68,7 @@ Grab the client-side import file from our website [razorfra.me](http://www.razor
 <script src="/razorframe.js"></script>
 ```
 
-
-###client.js:  
+**Javascript**  
 Contains 2 methods:  
 1) `rz.publish`  - publishes a data payload to a particular event and specifies a back-end callback  
 Specify arguments:
