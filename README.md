@@ -1,8 +1,12 @@
 #razorframe  
 **Version**  
 [![npm version](https://badge.fury.io/js/razorframe.svg)](https://badge.fury.io/js/razorframe)
-####*Empowering scalable, real-time web apps in Node.js*  
+####*Empowering scalable, real-time web apps in Node.js* 
 
+###Visit us at: [http://razorfra.me](http://www.razorfra.me)  
+<p align="center">
+  <img src="rz-logo.png" />
+</p> 
 
 
 ##Description  
@@ -21,7 +25,7 @@ Our tests have shown this process keeps the client UI updating in sub 100ms "rea
 $ npm i --save razorframe
 ```
 
-##Example
+##How to Use
 ###Server-side module:  
 1) Require razorframe.  
 2) Specify rzConfig object to set up server processes by declaring:
@@ -102,6 +106,17 @@ rz.subscribe('dbOnLoad', (data) => {
   });
 });
 ```
+**Error Handling:**  
+Razorframe enables error handling on the back-end if your database fails to query.  
+Within the error callback on your database controller, use the method:  
+
+```
+if (err) rz.onError(MSG, 2);
+```  
+where 'MSG' is the task being sent to the database and the second argument, in this case '2', specifies the number of attempts to do the query.  Razorframe will re-enqueue the task 'n' number of times with a default of 2 total attempts.  If the event fails to query after all attempts, a message is sent to the user that enqueued the event that the event has failed to write and will be dropped.
+
+##Demo App
+Check out our demo app for more usage examples at: [RZ-Demo](https://github.com/team-emt/rz_demo)
 
 ##Platform
 [Node.js](https://nodejs.org/)  
