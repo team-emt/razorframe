@@ -1,11 +1,11 @@
 #razorframe  
 **Version**  
-[![npm version](https://badge.fury.io/js/razorframe.svg)](https://badge.fury.io/js/razorframe)
-####*Empowering scalable, real-time web apps in Node.js* 
+[![npm version](https://badge.fury.io/js/razorframe.svg)](https://badge.fury.io/js/razorframe)  
+###*Empowering scalable, real-time web apps in Node.js*  
 
 ###Visit us at: [http://razorfra.me](http://www.razorfra.me)  
 <p align="center">
-  <img src="rz-logo.png" />
+  <img src="https://raw.githubusercontent.com/travishuff/razorframe/master/rz-logo.png" />
 </p> 
 
 
