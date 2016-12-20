@@ -24,5 +24,6 @@ describe('messaging queue unit tests', () => {
       expect(ll.tail.value).to.equal(10);
     });
   });
+
 });
 
