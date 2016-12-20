@@ -3,7 +3,7 @@
 [![npm version](https://badge.fury.io/js/razorframe.svg)](https://badge.fury.io/js/razorframe)  
 ###*Empowering scalable, real-time web apps in Node.js*  
 
-###Visit us at: [http://razorfra.me](http://www.razorfra.me)  
+###Visit us at: [http://www.razorfra.me](http://www.razorfra.me)  
 <p align="center">
   <img src="https://raw.githubusercontent.com/travishuff/razorframe/master/rz-logo.png" />
 </p> 
@@ -138,9 +138,9 @@ Check out our demo app for more usage examples at: [RZ-Demo](https://github.com/
 [Socket.io](https://www.npmjs.com/package/socket.io)  
 
 ##<a name="authors"></a>Authors  
-[Travis Huff](huff.travis@gmail.com)  
-[Eddie Park](ed.sh.park@gmail.com)  
-[Michael Sotkin](Michael.sotkin@gmail.com)
+[Travis Huff](https://github.com/travishuff)  
+[Eddie Park](https://github.com/parkedwards)  
+[Michael Sotkin](https://github.com/msotkin)
 
 ##<a name="feedback"></a>Feedback
 [Click this Link](https://docs.google.com/forms/d/e/1FAIpQLSdxOOe3qaxfK8kmPEZUaPQNM9cL_5jFxzUpHI_K2WNJvnpEuA/viewform) to leave feeback.  We want to hear from you! ⚡️
@@ -154,4 +154,4 @@ GitHub Issues: <https://github.com/team-emt/razorframe/issues>
 Please see out GitHub repo at: <https://github.com/team-emt/razorframe>
 
 ##<a name="license"></a>License  
-[MIT](https://github.com/travishuff/razorframe/blob/master/LICENSE)   
+[MIT](https://github.com/team-emt/razorframe/blob/master/LICENSE)   
