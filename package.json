@@ -1,7 +1,7 @@
 {
   "name": "razorframe",
   "version": "1.0.18",
-  "description": "Empowering real-time databases in Node.js",
+  "description": "Empowering scalable, real-time web apps in Node.js",
   "main": "./lib/Razorframe.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -12,9 +12,11 @@
   },
   "keywords": [
     "Node",
+    "clusters",
     "Express",
-    "Sockets.io",
+    "Socket.io",
     "SQL",
+    "Redis",
     "databases"
   ],
   "author": "Travis Huff, Eddie Park, Michael Sotkin",
