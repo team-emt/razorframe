@@ -4,7 +4,7 @@
   "description": "Empowering scalable, real-time web apps in Node.js",
   "main": "./lib/Razorframe.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "export NODE_ENV=test && mocha --timeout 8000 test/"
   },
   "repository": {
     "type": "git",
@@ -33,5 +33,9 @@
     "redis": "^2.6.3",
     "socket.io": "^1.6.0",
     "socket.io-redis": "^2.0.1"
+  },
+  "devDependencies": {
+    "chai": "^3.5.0",
+    "mocha": "^3.2.0"
   }
 }
