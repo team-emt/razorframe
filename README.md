@@ -6,8 +6,22 @@
 ###Visit us at: [http://razorfra.me](http://www.razorfra.me)  
 <p align="center">
   <img src="https://raw.githubusercontent.com/travishuff/razorframe/master/rz-logo.png" />
-</p> 
+</p>   
 
+
+##Table of Contents:  
+1. [Description](##Description)    
+2. [Installation](##Installation)  
+3. Usage: [Server-Side Module](###Server-side module:)  
+4. Usage:	[Client-Side module](###Client-side module:)  
+5. [Demo App](##Demo App)  
+6. [Platform Support](##Platform)  
+7. [Dependencies](##Dependencies)  
+8. [Authors](##Authors)  
+9. [Feedback](##Feedback)  
+10. [Support](##Support)  
+11. [Contributions](##Contributions)  
+12. [License](##License)  
 
 ##Description  
 Razorframe is a Javascript library built on Node.js which enables developers to build a real-time client experience while maintaining scalable, async back-end operations.  
@@ -21,7 +35,7 @@ Our tests have shown this process keeps the client UI updating in sub 100ms "rea
 ##Installation
 **Using npm:**  
 
-```
+```javascript
 $ npm i --save razorframe
 ```
 
@@ -43,7 +57,7 @@ $ npm i --save razorframe
  
 4) Initialize razorframe while passing in http (for your server) and the configurations.
 
-```
+```javascript
 const rz = require('razorframe');
 
 const rzConfig = {
@@ -67,7 +81,7 @@ rz.init(http, rzConfig, dbConfig);
 Import 2 libraries: socket.io and razorframe into your HTML.  
 Grab the client-side import file from our website [razorfra.me](http://www.razorfra.me).
 
-```
+```html
 <script src="/socket.io/socket.io.js"></script>
 <script src="/razorframe.js"></script>
 ```
@@ -81,7 +95,7 @@ Specify arguments:
 * **function name (as a string):** a back-end operation you want to perform as defined in dbConfig.
 * **event name:** name the event you can then subscribe to. 
  
-```
+```javascript
 textForm.addEventListener('submit', (e) => {
   e.preventDefault();
   const contents = textInput.value;
@@ -96,7 +110,7 @@ Specify arguments:
 * **event name:** the event you want to listen for.
 * **callback function:** any function you want to call on the payload from the event.
 
-```
+```javascript
 rz.subscribe('dbOnLoad', (data) => {
   data.reverse().forEach(item => {
     node = document.createElement('LI');
@@ -110,7 +124,7 @@ rz.subscribe('dbOnLoad', (data) => {
 Razorframe enables error handling on the back-end if your database fails to query.  
 Within the error callback on your database controller, use the method:  
 
-```
+```javascript
 if (err) rz.onError(MSG, 2);
 ```  
 where 'MSG' is the task being sent to the database and the second argument, in this case '2', specifies the number of attempts to do the query.  Razorframe will re-enqueue the task 'n' number of times with a default of 2 total attempts.  If the event fails to query after all attempts, a message is sent to the user that enqueued the event that the event has failed to write and will be dropped.
@@ -124,11 +138,13 @@ Check out our demo app for more usage examples at: [RZ-Demo](https://github.com/
 ##Dependencies
 [Socket.io](https://www.npmjs.com/package/socket.io)  
 
-
 ##Authors  
 [Travis Huff](huff.travis@gmail.com)  
 [Eddie Park](ed.sh.park@gmail.com)  
 [Michael Sotkin](Michael.sotkin@gmail.com)
+
+##Feedback
+[Click this Link](https://docs.google.com/forms/d/e/1FAIpQLSdxOOe3qaxfK8kmPEZUaPQNM9cL_5jFxzUpHI_K2WNJvnpEuA/viewform) to leave feeback.  We want to hear from you! ⚡️
 
 ##Support  
 Tested in Chrome 55 & Node 6/7.  
