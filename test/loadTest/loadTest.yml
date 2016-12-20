@@ -1,0 +1,27 @@
+{
+  "config": {
+    "target": "http://localhost:3000",
+    # "target": "http://custom-env.ggydansudp.us-west-2.elasticbeanstalk.com"
+    # "target": "http://googlegram.herokuapp.com"
+    "phases": [
+      {"duration": 15, "arrivalRate": 30},
+      # {"duration": 120, "arrivalRate": 5, "rampTo": 50},
+      # {"duration": 600, "arrivalRate": 50}
+    ],
+    "payload": {
+      "path": "quotes.csv",
+      "fields": ["increment"],
+      "order": "sequence"
+    }
+  },
+  "scenarios": [
+    {
+      "name": "Simulate chatters",
+      "engine": "socketio",
+      "flow": [
+        # {"get": {"url": "/"}},
+        {"emit": { "channel": "msgSent", "data":{ "contents": "{{increment}}", "action": "write", "eventOut": "chatMsg" }}}
+      ]
+    }
+  ]
+}
