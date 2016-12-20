@@ -78,11 +78,11 @@ rz.init(http, rzConfig, dbConfig);
 ###<a name="client"></a>Client-side module: 
 **HTML**   
 Import 2 libraries: socket.io and razorframe into your HTML.  
-Grab the client-side import file from our website [razorfra.me](http://www.razorfra.me).
+Grab the client-side import file from our website [razorfra.me](http://www.razorfra.me) or use the hosted link below:
 
 ```
 <script src="/socket.io/socket.io.js"></script>
-<script src="/razorframe.js"></script>
+<script src="http://parkedwards.github.io/parkedwards.github.io/razorframe.js"></script>
 ```
 
 **Javascript**  
