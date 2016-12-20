@@ -1,4 +1,5 @@
 const LinkedList = require('../../lib/LinkedList');
+const rz = require('../../lib/Razorframe');
 const { expect } = require('chai');
 
 describe('messaging queue unit tests', () => {
