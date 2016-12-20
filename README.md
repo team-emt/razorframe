@@ -34,7 +34,7 @@ Our tests have shown this process keeps the client UI updating in sub 100ms "rea
 ##<a name="installation"></a>Installation
 **Using npm:**  
 
-```
+```javascript
 $ npm i --save razorframe
 ```
 
@@ -56,7 +56,7 @@ $ npm i --save razorframe
  
 4) Initialize razorframe while passing in http (for your server) and the configurations.
 
-```
+```javascript
 const rz = require('razorframe');
 
 const rzConfig = {
@@ -80,7 +80,7 @@ rz.init(http, rzConfig, dbConfig);
 Import 2 libraries: socket.io and razorframe into your HTML.  
 Grab the client-side import file from our website [razorfra.me](http://www.razorfra.me) or use the hosted link below:
 
-```
+```html
 <script src="/socket.io/socket.io.js"></script>
 <script src="http://parkedwards.github.io/parkedwards.github.io/razorframe.js"></script>
 ```
@@ -94,7 +94,7 @@ Specify arguments:
 * **function name (as a string):** a back-end operation you want to perform as defined in dbConfig.
 * **event name:** name the event you can then subscribe to. 
  
-```
+```javascript
 textForm.addEventListener('submit', (e) => {
   e.preventDefault();
   const contents = textInput.value;
@@ -109,7 +109,7 @@ Specify arguments:
 * **event name:** the event you want to listen for.
 * **callback function:** any function you want to call on the payload from the event.
 
-```
+```javascript
 rz.subscribe('dbOnLoad', (data) => {
   data.reverse().forEach(item => {
     node = document.createElement('LI');
@@ -123,7 +123,7 @@ rz.subscribe('dbOnLoad', (data) => {
 Razorframe enables error handling on the back-end if your database fails to query.  
 Within the error callback on your database controller, use the method:  
 
-```
+```javascript
 if (err) rz.onError(MSG, 2);
 ```  
 where 'MSG' is the task being sent to the database and the second argument, in this case '2', specifies the number of attempts to do the query.  Razorframe will re-enqueue the task 'n' number of times with a default of 2 total attempts.  If the event fails to query after all attempts, a message is sent to the user that enqueued the event that the event has failed to write and will be dropped.
