@@ -40,6 +40,8 @@ $ npm i --save razorframe
 
 ##How to Use
 ###<a name="server"></a>Server-side module:  
+NOTE: We have provided a hosted Redis server inside Razorframe to act as a linking adapter for multiple Node workers.  This is intended for development prototyping for the time being.  As we move into production projects, we will provide a way for you to pass in your own Redis instance for this purpose.  
+
 1) Require razorframe.  
 2) Specify rzConfig object to set up server processes by declaring:
 
