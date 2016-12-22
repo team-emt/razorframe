@@ -49,20 +49,21 @@ describe('messaging queue unit tests', () => {
       expect(rz.razorframe.storage.pop()).to.equal(obj2);
       expect(rz.razorframe.storage.length).to.equal(0);
     });
-
-    describe('EventEmitter', () => {
-      it('should invoke the callback with data', () => {
-        let spy = sinon.spy();
-        let emitter = new EventEmitter();
-        let obj1 = { contents: 'test1', eventOut: 'test', action: 'write' };
-        rz.razorframe.enqueue(obj1);
-        emitter.on('enq', (data)=> {
-          spy(data);
-          sinon.assert.calledOnce(spy);
-          sinon.assert.calledWith(spy, rz.razorframe.storage.length);
-        });
+  });
+  
+  describe('EventEmitter', () => {
+    it('should invoke the callback with data', () => {
+      let spy = sinon.spy();
+      let emitter = new EventEmitter();
+      let obj1 = { contents: 'test1', eventOut: 'test', action: 'write' };
+      rz.razorframe.enqueue(obj1);
+      emitter.on('enq', (data) => {
+        spy(data);
+        sinon.assert.calledOnce(spy);
+        sinon.assert.calledWith(spy, rz.razorframe.storage.length);
       });
     });
   });
+
 });
 
