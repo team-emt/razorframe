@@ -1,13 +1,24 @@
-const chai = require('chai');
-const mocha = require('mocha');
-// const should = chai.should();
 const { expect } = require('chai');
 const { rz } = require('../../lib/Razorframe.js');
 
+////////   SERVER SET-UP   //////////////
+const express = require('express');
+const app = express();
+const http = require('http').Server(app);
+const rzConfig = {
+  port: process.env.PORT || 3000,
+  cluster: false
+};
+const dbConfig = {
+  write: null,
+  show: null,
+  update: null,
+  delete: null,
+};
 const io = require('socket.io-client');
+/////////////////////////////////////////
 
 describe("echo", function () {
-
   let server,
     options = {
       transports: ['websocket'],
@@ -16,7 +27,6 @@ describe("echo", function () {
 
   beforeEach(function (done) {
     // start the server
-    const {http, rzConfig, dbConfig } = require('./app.js');
     server = rz.init(http, rzConfig, dbConfig);
     done();
   });
@@ -25,23 +35,12 @@ describe("echo", function () {
     let client = io.connect("http://localhost:3000", options);
 
     client.on('msgBack', (message) => {
-      // message.should.equal('heyo');
       expect(message).to.equal('heyo');
       client.disconnect();
       done();
     });
 
     client.emit('msgSent', { contents: 'heyo', eventOut: 'msgBack' });
-
-    // client.once("connection", function () {
-    //   client.once("msgSent", function (message) {
-    //     message.should.equal("echo");
-
-    //     client.disconnect();
-    //     done();
-    //   });
-
-    //   client.emit("msgSent", "Hello World");
-    // });
   });
+
 });
