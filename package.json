@@ -1,10 +1,10 @@
 {
   "name": "razorframe",
-  "version": "1.0.2",
-  "description": "Empowering real-time databases in Node.js",
-  "main": "./lib/Razorbrain.js",
+  "version": "1.0.19",
+  "description": "Empowering scalable, real-time web apps in Node.js",
+  "main": "./lib/Razorframe.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "export NODE_ENV=test && mocha --timeout 8000 test/"
   },
   "repository": {
     "type": "git",
@@ -12,9 +12,11 @@
   },
   "keywords": [
     "Node",
+    "clusters",
     "Express",
-    "Sockets.io",
+    "Socket.io",
     "SQL",
+    "Redis",
     "databases"
   ],
   "author": "Travis Huff, Eddie Park, Michael Sotkin",
@@ -24,6 +26,17 @@
   },
   "homepage": "https://github.com/team-emt/razorframe#readme",
   "dependencies": {
-    "socket.io": "^1.6.0"
+    "debug": "^2.3.3",
+    "express": "^4.14.0",
+    "ip": "^1.1.4",
+    "parse-redis-url": "0.0.2",
+    "redis": "^2.6.3",
+    "socket.io": "^1.6.0",
+    "socket.io-redis": "^2.0.1"
+  },
+  "devDependencies": {
+    "chai": "^3.5.0",
+    "mocha": "^3.2.0",
+    "sinon": "^1.17.6"
   }
 }
