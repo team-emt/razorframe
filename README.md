@@ -1,6 +1,8 @@
 #razorframe  
 **Version**  
-[![npm version](https://badge.fury.io/js/razorframe.svg)](https://badge.fury.io/js/razorframe)  
+[![npm version](https://badge.fury.io/js/razorframe.svg)](https://badge.fury.io/js/razorframe) 
+![Build Status](https://travis-ci.org/team-emt/razorframe.svg?branch=master) 
+  
 ###*Empowering scalable, real-time web apps in Node.js*  
 
 ###Visit us at: [http://www.razorfra.me](http://www.razorfra.me)  
