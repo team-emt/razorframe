@@ -1,12 +1,11 @@
 const LinkedList = require('../../lib/LinkedList');
 const { rz } = require('../../lib/Razorframe');
 const { expect, assert } = require('chai');
-const sinon = require('sinon');
-const { EventEmitter } = require('events');
+const mocha = require('mocha');
 
 describe('messaging queue unit tests', () => {
 
-  describe('Linked List tests', () => {
+  describe('#Linked List tests', () => {
     let ll = new LinkedList();
 
     it('Linked List should contain valid push / pop methods', () => {
@@ -27,7 +26,7 @@ describe('messaging queue unit tests', () => {
     });
   });
 
-  describe('messaging queue tests', () => {
+  describe('#Messaging queue tests', () => {
 
     it('Razorframe should be instantiated', () => {
       expect(rz.razorframe).to.not.equal(undefined);
@@ -50,18 +49,23 @@ describe('messaging queue unit tests', () => {
       expect(rz.razorframe.storage.length).to.equal(0);
     });
   });
-  
-  describe('EventEmitter', () => {
-    it('should invoke the callback with data', () => {
-      let spy = sinon.spy();
-      let emitter = new EventEmitter();
+
+  describe('#Testing EventEmitter communication for function chains', () => {
+    it('Enqueue should emit an enq event', (done) => {
       let obj1 = { contents: 'test1', eventOut: 'test', action: 'write' };
-      rz.razorframe.enqueue(obj1);
-      emitter.on('enq', (data) => {
-        spy(data);
-        sinon.assert.calledOnce(spy);
-        sinon.assert.calledWith(spy, rz.razorframe.storage.length);
+      rz.razorframe.notification.on('enq', (data) => {
+        expect(data).to.equal(1);
+        done();
       });
+      rz.razorframe.enqueue(obj1);
+    });
+
+    it('Dequeue should emit a deq event', (done) => {
+      rz.razorframe.notification.on('deq', (data) => {
+        expect(data.contents).to.equal('test1');
+        done();
+      });
+      rz.razorframe.dequeue();
     });
   });
 
