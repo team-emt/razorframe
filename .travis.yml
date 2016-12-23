@@ -3,6 +3,9 @@ language: node_js
 node_js:
   - 6.4
 
+notifications:
+  slack: codesmith-10:MJUDKfhOj4T3uHfMCjYC6bgF
+
 # cache:
 #   directories:
 #     - node_modules
