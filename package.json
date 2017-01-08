@@ -4,7 +4,8 @@
   "description": "Empowering scalable, real-time web apps in Node.js",
   "main": "./lib/Razorframe.js",
   "scripts": {
-    "test": "export NODE_ENV=test && mocha --timeout 8000 test/"
+    "test": "export NODE_ENV=test && mocha --timeout 8000 test/",
+    "test-watch": "npm run test -- --watch"
   },
   "repository": {
     "type": "git",
@@ -35,6 +36,7 @@
     "socket.io-redis": "^2.0.1"
   },
   "devDependencies": {
+    "bluebird": "^3.4.7",
     "chai": "^3.5.0",
     "eslint": "^3.13.0",
     "eslint-config-airbnb-base": "^11.0.0",
