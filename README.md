@@ -41,9 +41,8 @@ $ npm i --save razorframe
 ```
 
 ##How to Use
-###<a name="server"></a>Server-side module:  
 
-**Note:**
+###Hosted Redis server:  
 We have removed the hosted Redis server originally provided during initial rollout.  In order to leverage concurrency with razorframe and ensure server -> client communication, be sure to instantiate a local or hosted Redis server for your application.  
 
 You can store your Redis reference in an environment variable, or fall back to a locally hosted instance (see below):
@@ -52,8 +51,11 @@ You can store your Redis reference in an environment variable, or fall back to a
 const REDIS_URL = process.env.REDIS_URL || { host: 'localhost', port: 6379 }
 ```
 
+
+###<a name="server"></a>Server-side module:  
+
 **(1) Require razorframe**  
-**(2) Specify rzConfig object to set up server processes by declaring:**
+**(2) Specify ```rzConfig``` object to set up server processes by declaring:**
 
 * `rzConfig.port`: port where your server is listening.  
 * `rzConfig.cluster`: true or false depending on whether you want to enable Node clusters.  
