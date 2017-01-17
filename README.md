@@ -41,24 +41,34 @@ $ npm i --save razorframe
 ```
 
 ##How to Use
-###<a name="server"></a>Server-side module:  
-NOTE: We have provided a hosted Redis server inside Razorframe to act as a linking adapter for multiple Node workers.  This is intended for development prototyping for the time being.  As we move into production projects, we will provide a way for you to pass in your own Redis instance for this purpose.  
 
-1) Require razorframe.  
-2) Specify rzConfig object to set up server processes by declaring:
+###Hosted Redis server:  
+We have removed the hosted Redis server originally provided during initial rollout.  In order to leverage concurrency with razorframe and ensure server -> client communication, be sure to instantiate a local or hosted Redis server for your application.  
+
+You can store your Redis reference in an environment variable, or fall back to a locally hosted instance (see below):
+
+```javascript
+const REDIS_URL = process.env.REDIS_URL || { host: 'localhost', port: 6379 }
+```
+
+
+###<a name="server"></a>Server-side module:  
+
+**(1) Require razorframe**  
+**(2) Specify ```rzConfig``` object to set up server processes by declaring:**
 
 * `rzConfig.port`: port where your server is listening.  
 * `rzConfig.cluster`: true or false depending on whether you want to enable Node clusters.  
 (Even though our config automatically accounts for 1 process if not specified, you'll still get better performance if you turn off Node clusters if you know you won't be using more than one CPU.)  
 
-3) Specify dbConfig object to define your back-end callbacks. 
+**(3) Specify ```dbConfig``` object to define your back-end callbacks** 
 
 * `dbConfig.write`: 'create' function for database. 
 * `dbConfig.show`: 'read' function for database.  
 * `dbConfig.update`: 'update' function for database.  
 * `dbConfig.delete`: 'delete' function for databse.   
  
-4) Initialize razorframe while passing in http (for your server) and the configurations.
+**(4) Initialize razorframe while passing in http (for your server) and the configurations**
 
 ```javascript
 const rz = require('razorframe');
